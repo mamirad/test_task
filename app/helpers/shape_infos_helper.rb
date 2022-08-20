@@ -1,0 +1,2 @@
+module ShapeInfosHelper
+end

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TestTask</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">Home</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="<%=shape_infos_import_path %>">Reload Shape Data</a></li>
+            <li class=""><a href="<%=shape_infos_map_path() %>" target='_blank'>Map</a></li>
+            <li>
+              <form action="/">
+                <div class="shape-search">
+                  <input type="text" class="form-control" name="keyword" value="<%=params[:keyword] %>">
+                  <input type="submit">
+                </div>
+
+              </form>
+
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <%= yield %>
+    </div>
+  </body>
+</html>

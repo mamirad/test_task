@@ -1,0 +1,49 @@
+<div id="map"></div>
+
+
+<script>
+   function initMap() {
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 8,
+        center: {lat: 55.86178115, lng: 12.313735099767246},
+    });
+    let tourStops = [];
+    <% @results.each do |shape|%>
+    tourStops.push([{lat: <%=shape[:lat]%>, lng: <%=shape[:long]%>}, '<%=shape[:nuts_name]%>', '<%=shape[:nuts_id]%>', '<%=shape[:point_x]%>', '<%=shape[:point_y]%>']);
+    <%end%>
+        
+    // Create an info window to share between markers.
+    const infoWindow = new google.maps.InfoWindow();
+
+    // Create the markers.
+    tourStops.forEach(([position, title, id, x, y], i) => {
+        const marker = new google.maps.Marker({
+            position,
+            map,
+            title: `Nuts Name: ${title} <br> Nuts ID: ${id} <br> point x: ${x} <br> point Y: ${y}`,
+            label: `${title}`,
+            optimized: false,
+        });
+
+        // Add a click listener for each marker, and set up the info window.
+        marker.addListener("click", () => {
+            infoWindow.close();
+            infoWindow.setContent(marker.getTitle());
+            infoWindow.open(marker.getMap(), marker);
+        });
+    });
+}
+
+window.initMap = initMap;
+
+</script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBiKLHOWxfQdfLinPfKJYMHjFPYeU-cqM&callback=initMap&v=weekly"
+  defer
+></script>
+<style type="text/css">
+    #map {
+        position: unset !important;
+    }
+</style>
+

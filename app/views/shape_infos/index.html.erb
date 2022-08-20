@@ -1,0 +1,35 @@
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Index</th>
+    <th>X</th>
+    <th>Y</th>
+    <th>Nuts Id</th>
+    <th>Nuts Name</th>
+    <th>Mount Type</th>
+    <th>Urbn Type</th>
+    <th>Coast Type</th>
+    <th>FID</th>
+    <th>Levl Code</th>
+    <th>Name Lath</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @shapes.each do |shape| %>
+    <tr>
+      <td><%= shape.index %></td>
+      <td><%= shape.point_x %></td>
+      <td><%= shape.point_y %></td>
+      <td><%= shape.nuts_id %></td>
+      <td><%= shape.nuts_name %></td>
+      <td><%= shape.mount_type %></td>
+      <td><%= shape.urbn_type %></td>
+      <td><%= shape.coast_type %></td>
+      <td><%= shape.fid %></td>
+      <td><%= shape.levl_code %></td>
+      <td><%= shape.name_latn %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= will_paginate @shapes %>

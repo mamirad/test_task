@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  index: 1
+  lat: MyString
+  long: MyString
+  nuts_id: MyString
+  nuts_name: MyString
+  mount_type: 1
+  urbn_type: MyString
+  coast_type: 1
+  fid: MyString
+
+two:
+  index: 1
+  lat: MyString
+  long: MyString
+  nuts_id: MyString
+  nuts_name: MyString
+  mount_type: 1
+  urbn_type: MyString
+  coast_type: 1
+  fid: MyString
